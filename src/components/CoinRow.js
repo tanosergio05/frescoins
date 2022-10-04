@@ -12,7 +12,7 @@ const CoinRow = ({ coin, index }) => {
                     style={{ width: "3%" }}
                 />
                 <span>{coin.name}</span>
-                <span className="ms-3 text-muted">{coin.symbol}</span>
+                <span className="ms-3 text-muted">{coin.symbol.toUpperCase()}</span>
             </td>
 
             <td>$ {coin.current_price.toLocaleString()}</td>

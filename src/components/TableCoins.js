@@ -1,5 +1,6 @@
 import React from "react";
 import CoinRow from "./CoinRow";
+import 'animate.css';
 
 const titles = ["#", "Coin", "Price", "Price Change", "24h Volume"];
 
@@ -8,7 +9,7 @@ const TableCoins = ({ coins, search }) => {
         coin.name.toLowerCase().includes(search.toLowerCase())
     );
 
-    if (!coins) return <div>no coins</div>
+    if (!coins) return <div>No coins</div>
 
     return (
         <table className="table table-dark mt-4 table-hover">
