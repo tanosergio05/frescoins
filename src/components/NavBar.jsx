@@ -1,17 +1,14 @@
 import { useState, useEffect } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
-import logo from '../assets/img/frescoinblanco.png';
-import ThemeSwitch from './ThemeSwitch'
+import logo from "../assets/img/frescoinblanco.png";
+import ThemeSwitch from "./ThemeSwitch";
 // import navIcon1 from '../assets/img/nav-icon1.svg';
 // import navIcon2 from '../assets/img/nav-icon2.svg';
 // import navIcon3 from '../assets/img/nav-icon3.svg';
 // import { HashLink } from 'react-router-hash-link';
-import {
-  BrowserRouter as Router
-} from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 
 export const NavBar = () => {
-
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -21,12 +18,12 @@ export const NavBar = () => {
       } else {
         setScrolled(false);
       }
-    }
-    
+    };
+
     window.addEventListener("scroll", onScroll);
 
     return () => window.removeEventListener("scroll", onScroll);
-  }, [])
+  }, []);
 
   return (
     <Router>
@@ -59,5 +56,5 @@ export const NavBar = () => {
         </Container>
       </Navbar>
     </Router>
-  )
-}
+  );
+};

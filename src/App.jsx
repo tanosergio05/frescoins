@@ -1,7 +1,7 @@
 import "./App.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import { NavBar } from './components/NavBar'
 import TableCoins from "./components/TableCoins";
 import { Footer } from "./components/Footer";
@@ -11,20 +11,21 @@ const App = () => {
   const [search, setSearch] = useState("");
   const vs_currency = "usd";
 
+  useEffect(() => {
+    getData();
+  }, []);
+
   const getData = async () => {
     try {
       const res = await axios.get(
-        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=" + vs_currency + "&order=market_cap_desc&per_page=100&page=1&sparkline=false"
+        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=" + vs_currency + "&order=market_cap_desc&per_page=100&page=1&sparkline=true"
       );
       setCoins(res.data);
+      console.log(res.data);
     } catch (error) {
       console.error(error);
     }
   };
-
-  useEffect(() => {
-    getData();
-  }, []);
 
   return (
     <div className="App">
@@ -42,6 +43,7 @@ const App = () => {
             />
 
             <TableCoins coins={coins} search={search} />
+            
           </section>
         </Row>
       </Container>
